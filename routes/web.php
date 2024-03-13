@@ -33,3 +33,5 @@ Route::post('/login', [AuthController::class, 'store']);
 
 Route::get('/clients/add', [ClientController::class, 'create'])->middleware('auth');
 Route::post('/clients', [ClientController::class, 'store'])->middleware('auth');
+
+Route::get('/logout', [AuthController::class, 'logout']);
