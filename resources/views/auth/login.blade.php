@@ -7,7 +7,7 @@
             {{ session()->get('error') }}
         </div>
     @endif
-    <form action="{{ url('/login') }}" method="post">
+    <form action="{{ url('login') }}" method="post">
         @csrf
 
         <div class="mb-3">

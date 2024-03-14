@@ -18,10 +18,11 @@ class AuthController extends Controller
             'email' => 'required|email',
             'password' => 'required',
         ]);
+        // dd($map);
 
 
-        if (Auth::attempt($map)) {
-            return redirect()->route('dashboard')->with('success', 'Login successful!');
+        if (Auth::attempt($request->only('email', 'password'))) {
+            return redirect('/dashboard')->with('success', 'Login successful!');
         } else {
             return redirect()->back()->withInput()->withErrors(['invalid_credentials' => 'Invalid credentials. Check the email address and password entered.']);
         }
